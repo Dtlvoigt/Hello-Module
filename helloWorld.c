@@ -1,15 +1,29 @@
 // A simple kernel module
 #include <linux/module.h>
 #include <linux/kernel.h>
+#include <linux/init.h>
 
-int hello_init(void)
+//author name
+MODULE_AUTHOR("Dylan Voigt");
+
+//license
+MODULE_LICENSE("GPL");
+
+//description
+MODULE_DESCRIPTION("My first linux kernel module!");
+
+//modules must include a initialization function
+static int __init helloWorld(void)
 {
   printk(KERN_INFO "Hello World!!\n");
-
   return 0;
 }
 
-void goodbye_module(void)
+//modules must include a cleanup function
+static void __exit goodbyeWorld(void)
 {
   printk(KERN_INFO "Exiting module\n");
 }
+
+module_init(helloWorld);
+module_exit(goodbyeWorld);

@@ -6,9 +6,6 @@
 //author name
 MODULE_AUTHOR("Dylan Voigt");
 
-//license
-MODULE_LICENSE("GPL");
-
 //description
 MODULE_DESCRIPTION("My first linux kernel module!");
 
